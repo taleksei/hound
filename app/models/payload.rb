@@ -37,6 +37,12 @@ class Payload
     pull_request.present?
   end
 
+  def pull_request_title
+    return '' unless pull_request?
+
+    pull_request['title']
+  end
+
   def repository_owner_id
     repository["owner"]["id"]
   end

@@ -31,6 +31,10 @@ class PullRequest
     payload.action == "synchronize"
   end
 
+  def title
+    payload.pull_request_title
+  end
+
   def head_commit
     @head_commit ||= Commit.new(repo_name, payload.head_sha, user_github)
   end
