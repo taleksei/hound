@@ -8,7 +8,7 @@ class BuildsController < ApplicationController
   end
 
   def create
-    if payload.pull_request? && payload.pull_request_title&.include?('[skip hound]')
+    if payload.pull_request? && !payload.pull_request_title&.include?('[skip hound]')
       build_job_class.perform_later(payload.build_data)
     end
     head :ok
