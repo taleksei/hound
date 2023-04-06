@@ -31,8 +31,6 @@ class BuildRunner
   end
 
   def relevant_pull_request?
-    return false if pull_request.title.include?('[skip hound]')
-
     pull_request.opened? || pull_request.synchronize?
   end
 
